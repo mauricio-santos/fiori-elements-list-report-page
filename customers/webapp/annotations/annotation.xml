@@ -31,6 +31,23 @@
                     </Collection>
                 </Annotation>        
             </Annotations>
+
+            <!-- ############### Custom Entity Name ############### -->
+            <Annotations Target="NorthwindModel.Customer/CustomerID">
+                <Annotation Term="Common.Label" String="{@i18n>customerId}"/>
+            </Annotations>
+            
+            <Annotations Target="NorthwindModel.Customer/CompanyName">
+                <Annotation Term="Common.Label" String="{@i18n>companyName}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/ContactName">
+                <Annotation Term="Common.Label" String="{@i18n>contactName}"/>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Customer/PostalCode">
+                <Annotation Term="Common.Label" String="{@i18n>postalCode}"/>
+            </Annotations>
             
         </Schema>
     </edmx:DataServices>
