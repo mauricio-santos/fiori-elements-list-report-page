@@ -121,6 +121,7 @@
             "condensedTableLayout": true,
             "smartVariantManagement": true,
             "enableTableFilterInPageVariant": true,
+            "multiSelect": true,
             "filterSettings": {
               "dateSettings": {
                 "useDateRange": true
