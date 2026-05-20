@@ -14,6 +14,24 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <!-- ############### CUSTOMERS ANNOTATIONS ############### -->
+            <Annotations Target="NorthwindModel.Customer">
+
+                <!-- ############### Simple Filters ############### -->
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection>
+                        <PropertyPath>CustomerID</PropertyPath>
+                        <PropertyPath>CompanyName</PropertyPath>
+                        <PropertyPath>ContactName</PropertyPath>
+                        <PropertyPath>Country</PropertyPath>
+                        <PropertyPath>Region</PropertyPath>
+                        <PropertyPath>City</PropertyPath>
+                        <PropertyPath>PostalCode</PropertyPath>
+                    </Collection>
+                </Annotation>        
+            </Annotations>
+            
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
