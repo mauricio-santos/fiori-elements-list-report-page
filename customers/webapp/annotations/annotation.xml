@@ -39,6 +39,21 @@
             
             <Annotations Target="NorthwindModel.Customer/CompanyName">
                 <Annotation Term="Common.Label" String="{@i18n>companyName}"/>
+
+                <!-- Set values list for CompanyName property, which will be used in the filter bar as value help -->
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Customer_and_Suppliers_by_Cities"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyName"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations>
 
             <Annotations Target="NorthwindModel.Customer/ContactName">
