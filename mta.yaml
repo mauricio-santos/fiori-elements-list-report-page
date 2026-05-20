@@ -1,3 +1,57 @@
 _schema-version: "3.2"
 ID: fiori-elements-list-report-page
 version: 0.0.1
+modules:
+- name: fiori-elements-list-report-page-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: fiori-elements-list-report-page-destination-service
+    parameters:
+      content-target: true
+  - name: fiori-elements-list-report-page_html_repo_host
+    parameters:
+      service-key:
+        name: fiori-elements-list-report-page_html_repo_host-key
+  - name: uaa_fiori-elements-list-report-page
+    parameters:
+      service-key:
+        name: uaa_fiori-elements-list-report-page-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: ListReportPage_fiori_elements_list_report_page_html_repo_host
+          ServiceInstanceName: fiori-elements-list-report-page-html5-app-host-service
+          ServiceKeyName: fiori-elements-list-report-page_html_repo_host-key
+          sap.cloud.service: ListReportPage
+        - Authentication: OAuth2UserTokenExchange
+          Name: ListReportPage_uaa_fiori_elements_list_report_page
+          ServiceInstanceName: fiori-elements-list-report-page-xsuaa-service
+          ServiceKeyName: uaa_fiori-elements-list-report-page-key
+          sap.cloud.service: ListReportPage
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+resources:
+- name: fiori-elements-list-report-page-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+    service: destination
+    service-name: fiori-elements-list-report-page-destination-service
+    service-plan: lite
+- name: fiori-elements-list-report-page_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: fiori-elements-list-report-page-html5-app-host-service
+    service-plan: app-host
+- name: uaa_fiori-elements-list-report-page
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: fiori-elements-list-report-page-xsuaa-service
+    service-plan: application
