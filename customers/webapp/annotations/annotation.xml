@@ -34,6 +34,13 @@
                     </Collection>
                 </Annotation>
 
+                <!-- ############### Semantic Key ############### -->            
+                <Annotation Term="Common.SemanticKey" >
+                    <Collection>
+                        <PropertyPath>CustomerID</PropertyPath>
+                    </Collection>
+                </Annotation>
+
                 <!-- ############### Line Item Customers ############### -->
                 <Annotation Term="UI.LineItem" >
                     <Collection>
