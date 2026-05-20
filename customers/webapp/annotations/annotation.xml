@@ -41,6 +41,14 @@
                     </Collection>
                 </Annotation>
 
+                <!-- ############### Header Info ############### -->
+                <Annotation Term="UI.HeaderInfo" >
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>customer}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>customers}"/>
+                    </Record>
+                </Annotation>
+
                 <!-- ############### Line Item Customers ############### -->
                 <Annotation Term="UI.LineItem" >
                     <Collection>
