@@ -46,6 +46,18 @@
                     <Record Type="UI.HeaderInfoType">
                         <PropertyValue Property="TypeName" String="{@i18n>customer}"/>
                         <PropertyValue Property="TypeNamePlural" String="{@i18n>customers}"/>
+
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="CompanyName"/>
+                            </Record>
+                        </PropertyValue>
+
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ContactName"/>
+                            </Record>
+                        </PropertyValue>
                     </Record>
                 </Annotation>
 
