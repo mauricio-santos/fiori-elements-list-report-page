@@ -304,6 +304,127 @@
              <!-- ############### ORDERS ANNOTATIONS ############### -->
             <Annotations Target="NorthwindModel.Order">
 
+                <!-- ############### Order Details Header Info ############### -->
+                <Annotation Term="UI.HeaderInfo" >
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>order}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>orders}"/>
+
+                        <!-- Get Company Name from Customer -->
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Customer/CompanyName"/>
+                                <PropertyValue Property="Label" String="{@i18n>companyName}"/>
+                            </Record>
+                        </PropertyValue>
+
+                        <!-- Get Contact Name from Customer -->
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Customer/ContactName"/>
+                                <PropertyValue Property="Label" String="{@i18n>contactName}"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- ############### Order Identification for Customer ############### -->
+                <Annotation Term="UI.Identification" Qualifier="QCustomerIdentification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer/CompanyName"/>
+                            <PropertyValue Property="Label" String="{@i18n>companyName}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer/ContactName"/>
+                            <PropertyValue Property="Label" String="{@i18n>contactName}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- ############### Order Identification for Employee ############### -->
+                <Annotation Term="UI.Identification" Qualifier="QEmployeeIdentification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/EmployeeID"/>
+                            <PropertyValue Property="Label" String="{@i18n>employeeId}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/FirstName"/>
+                            <PropertyValue Property="Label" String="{@i18n>firstName}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/LastName"/>
+                            <PropertyValue Property="Label" String="{@i18n>lastName}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/Title"/>
+                            <PropertyValue Property="Label" String="{@i18n>title}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- ############### Order Identification for Employee Address ############### -->
+                <Annotation Term="UI.Identification" Qualifier="QEmployeeAddressIdentification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/Country"/>
+                            <PropertyValue Property="Label" String="{@i18n>country}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/Region"/>
+                            <PropertyValue Property="Label" String="{@i18n>region}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/City"/>
+                            <PropertyValue Property="Label" String="{@i18n>city}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/Address"/>
+                            <PropertyValue Property="Label" String="{@i18n>adderess}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Employee/HomePhone"/>
+                            <PropertyValue Property="Label" String="{@i18n>phone}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- ############### Order Details Facets ############### -->
+                <Annotation Term="UI.Facets" >
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="{@i18n>orderInformation}"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification#QCustomerIdentification"/>
+                                        <PropertyValue Property="Label" String="{@i18n>customerInformation}"/>
+                                    </Record>
+
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification#QEmployeeIdentification"/>
+                                        <PropertyValue Property="Label" String="{@i18n>employeeInformation}"/>
+                                    </Record>
+
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification#QEmployeeAddressIdentification"/>
+                                        <PropertyValue Property="Label" String="{@i18n>employeeAddress}"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
                 <!-- ############### Orders Semantic Key ############### -->
                 <Annotation Term="Common.SemanticKey" >
                     <Collection>
