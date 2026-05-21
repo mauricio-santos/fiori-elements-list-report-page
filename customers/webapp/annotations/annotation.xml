@@ -61,6 +61,48 @@
                     </Record>
                 </Annotation>
 
+                <!-- ############### Communication Contact ############### -->   
+                <Annotation Term="Communication.Contact">
+                    <Record Type="Communication.ContactType">
+                        <PropertyValue Property="fn" Path="ContactName"/>
+                        <PropertyValue Property="title" Path="ContactTitle"/>
+
+                        <PropertyValue Property="adr">
+                            <Collection>
+                                <Record Type="Communication.AddressType">
+                                    <PropertyValue Property="type" EnumMember="Communication.ContactInformationType/work"/>
+                                    <PropertyValue Property="country" Path="Country"/>
+                                    <PropertyValue Property="locality" Path="City"/>
+                                    <PropertyValue Property="code" Path="PostalCode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record Type="Communication.PhoneNumberType">
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/work"/>
+                                    <PropertyValue Property="uri" Path="Phone"/>
+                                </Record>
+
+                                <Record Type="Communication.PhoneNumberType">
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/fax"/>
+                                    <PropertyValue Property="uri" Path="Fax"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- ############### Header Facets ############### -->
+                <Annotation Term="UI.HeaderFacets" >
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@Communication.Contact"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
                 <!-- ############### Line Item Customers ############### -->
                 <Annotation Term="UI.LineItem" >
                     <Collection>
