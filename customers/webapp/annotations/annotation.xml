@@ -162,6 +162,28 @@
                     </Record>
                 </Annotation>
 
+                <!-- ############### Facets ############### -->           
+                <Annotation Term="UI.Facets" >
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="{@i18n>customerFacet}"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification#QIdentification"/>
+                                        <PropertyValue Property="Label" String="{@i18n>customerInformation}"/>
+                                    </Record>
+
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#QFieldGroup"/>
+                                        <PropertyValue Property="Label" String="{@i18n>addressInformation}"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
                 <!-- ############### Line Item Customers ############### -->
                 <Annotation Term="UI.LineItem" >
                     <Collection>
