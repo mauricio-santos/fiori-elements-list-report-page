@@ -162,9 +162,10 @@
                     </Record>
                 </Annotation>
 
-                <!-- ############### Facets ############### -->           
+                <!-- ############### Customer Facets ############### -->           
                 <Annotation Term="UI.Facets" >
                     <Collection>
+                        <!-- Customer Facet -->
                         <Record Type="UI.CollectionFacet">
                             <PropertyValue Property="Label" String="{@i18n>customerFacet}"/>
                             <PropertyValue Property="Facets">
@@ -180,6 +181,12 @@
                                     </Record>
                                 </Collection>
                             </PropertyValue>
+                        </Record>
+
+                        <!-- Order Facet -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="Orders/@UI.LineItem#QOrders"/>
+                            <PropertyValue Property="Label" String="{@i18n>orders}"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -292,6 +299,67 @@
                         <PropertyValue Property="Deletable" Bool="false"/>
                     </Record>
                 </Annotation>
+            </Annotations>
+
+             <!-- ############### ORDERS ANNOTATIONS ############### -->
+            <Annotations Target="NorthwindModel.Order">
+
+                <!-- ############### Orders Semantic Key ############### -->
+                <Annotation Term="Common.SemanticKey" >
+                    <Collection>
+                        <PropertyPath>OrderID</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <!-- ############### Orders Line Items ############### -->
+                <Annotation Term="UI.LineItem" Qualifier="QOrders">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderID"/>
+                            <PropertyValue Property="Label" String="{@i18n>ordeId}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="RequiredDate"/>
+                            <PropertyValue Property="Label" String="{@i18n>requiredDate}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderDate"/>
+                            <PropertyValue Property="Label" String="{@i18n>orderDate}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Freight"/>
+                            <PropertyValue Property="Label" String="{@i18n>freight}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipCountry"/>
+                            <PropertyValue Property="Label" String="{@i18n>shipCountry}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipCity"/>
+                            <PropertyValue Property="Label" String="{@i18n>shipCity}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipPostalCode"/>
+                            <PropertyValue Property="Label" String="{@i18n>shipPostalcode}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShipAddress"/>
+                            <PropertyValue Property="Label" String="{@i18n>shipAddress}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ShippedDate"/>
+                            <PropertyValue Property="Label" String="{@i18n>shippedDate}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>             
             </Annotations>
             
         </Schema>
