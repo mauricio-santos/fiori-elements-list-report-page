@@ -18,7 +18,7 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
 
-            <!-- ############### CUSTOMERS ANNOTATIONS ############### -->
+            <!-- ========================== CUSTOMERS ANNOTATIONS ========================== -->
             <Annotations Target="NorthwindModel.Customer">
 
                 <!-- ############### Simple Filters ############### -->
@@ -301,7 +301,7 @@
                 </Annotation>
             </Annotations>
 
-             <!-- ############### ORDERS ANNOTATIONS ############### -->
+             <!-- ========================== ORDERS ANNOTATIONS ========================== -->
             <Annotations Target="NorthwindModel.Order">
 
                 <!-- ############### Order Details Header Info ############### -->
@@ -422,6 +422,11 @@
                                 </Collection>
                             </PropertyValue>
                         </Record>
+
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="Order_Details/@UI.LineItem#QOrderDetails"/>
+                            <PropertyValue Property="Label" String="{@i18n>products}"/>
+                        </Record>
                     </Collection>
                 </Annotation>
 
@@ -485,6 +490,72 @@
 
             <!-- ############### Orders Capabilities Restrictions ############### -->
             <Annotations Target="ODataWeb.Northwind.Model.NorthwindEntities/Orders">
+                <Annotation Term="Capabilities.SearchRestrictions">
+                    <Record Type="Capabilities.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <!-- ========================== ORDER DETAILS ANNOTATIONS ========================== -->
+            <Annotations Target="NorthwindModel.Order_Detail">
+
+                    <!-- ############### Line Item  Order Details ############### -->           
+                <Annotation Term="UI.LineItem" Qualifier="QOrderDetails">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product/ProductName"/>
+                            <PropertyValue Property="Label" String="{@i18n>productName}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product/Category/CategoryName"/>
+                            <PropertyValue Property="Label" String="{@i18n>category}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product/Supplier/CompanyName"/>
+                            <PropertyValue Property="Label" String="{@i18n>companyName}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Order/OrderDate"/>
+                            <PropertyValue Property="Label" String="{@i18n>orderDate}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                            <PropertyValue Property="Label" String="{@i18n>quantity}"/>
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitPrice"/>
+                            <PropertyValue Property="Label" String="{@i18n>unitPrice}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <!-- ############### Capabilities Restrictions Order_Details ############### -->
+            <Annotations Target="ODataWeb.Northwind.Model.NorthwindEntities/Order_Details">
                 <Annotation Term="Capabilities.SearchRestrictions">
                     <Record Type="Capabilities.SearchRestrictionsType">
                         <PropertyValue Property="Searchable" Bool="false"/>
